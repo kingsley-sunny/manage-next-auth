@@ -8,18 +8,14 @@ export const authSlice = createSlice({
   name: "Auth",
   initialState: {
     accessToken: getCookie(ACCESS_TOKEN_NAME) ?? null,
-    user: typeof window !== "undefined" ? window.localStorage.getItem(USER_STORAGE_KEY) : null,
+    user:
+      typeof window !== "undefined"
+        ? JSON.parse(window.localStorage.getItem(USER_STORAGE_KEY) as string)
+        : null,
   },
   reducers: {
     setAccessToken: (state, action) => {
       state.accessToken = action.payload.token;
-      setCookie(ACCESS_TOKEN_NAME, action.payload.token, {
-        maxAge: action.payload.maxAge,
-      });
-    },
-
-    removeAccessToken: (state, action) => {
-      state.accessToken = null;
       setCookie(ACCESS_TOKEN_NAME, action.payload.token, {
         maxAge: action.payload.maxAge,
       });
@@ -30,20 +26,21 @@ export const authSlice = createSlice({
       localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(action.payload));
     },
 
-    removeUser: (state, action) => {
+    logout: (state, action) => {
+      // remove the access token
+      state.accessToken = null;
+      deleteCookie(ACCESS_TOKEN_NAME);
+
+      // set the user to null
       state.user = null;
       localStorage.removeItem(USER_STORAGE_KEY);
-    },
-
-    logout: (state, action) => {
-      deleteCookie("user");
-      deleteCookie(USER_STORAGE_KEY);
     },
   },
 });
 
-export const { setAccessToken, setUser } = authSlice.actions;
+export const { setAccessToken, setUser, logout } = authSlice.actions;
 
-export const selectAuth = (state: any) => state.counter.value;
+export const selectUser = (state: any) => state.authStore.user;
+export const selectAccessToken = (state: any) => state.authStore.accessToken;
 
 export default authSlice.reducer;

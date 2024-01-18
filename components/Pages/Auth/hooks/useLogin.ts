@@ -3,9 +3,11 @@ import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { setAccessToken, setUser } from "../../../../base/store/authStore";
 import { supabase } from "../../../../db/superbase";
+import { useRouter } from "next/router";
 
 export const useLogin = () => {
   const dispatch = useDispatch();
+  const { push } = useRouter();
 
   const { mutate, isPending, data, error } = useMutation({
     async mutationFn(data: any) {
@@ -32,6 +34,7 @@ export const useLogin = () => {
       dispatch(setUser(data.user));
 
       toast.success("Login Successful");
+      push("/dashboard");
     },
   });
 

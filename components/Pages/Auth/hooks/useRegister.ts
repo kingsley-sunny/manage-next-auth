@@ -1,4 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
+import { useRouter } from "next/router";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { setAccessToken, setUser } from "../../../../base/store/authStore";
@@ -6,6 +7,7 @@ import { supabase } from "../../../../db/superbase";
 
 export const useRegister = () => {
   const dispatch = useDispatch();
+  const { push } = useRouter();
 
   const { mutate, isPending, data, error } = useMutation({
     async mutationFn(data: any) {
@@ -39,6 +41,7 @@ export const useRegister = () => {
         dispatch(setUser(data.user));
 
         toast.success("Registration Complete");
+        push("/dashboard");
       }
     },
   });
