@@ -1,8 +1,12 @@
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { setAccessToken, setUser } from "../../../../base/store/authStore";
 import { supabase } from "../../../../db/superbase";
 
 export const useRegister = () => {
+  const dispatch = useDispatch();
+
   const { mutate, isPending, data, error } = useMutation({
     async mutationFn(data: any) {
       const response = await supabase.auth.signUp({
@@ -28,7 +32,14 @@ export const useRegister = () => {
     },
 
     onSuccess(data) {
-      toast.success("Registration Complete");
+      if (data.session && data.user) {
+        dispatch(
+          setAccessToken({ token: data.session.access_token, maxAge: data.session.expires_in })
+        );
+        dispatch(setUser(data.user));
+
+        toast.success("Registration Complete");
+      }
     },
   });
 

@@ -1,8 +1,12 @@
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { setAccessToken, setUser } from "../../../../base/store/authStore";
 import { supabase } from "../../../../db/superbase";
 
 export const useLogin = () => {
+  const dispatch = useDispatch();
+
   const { mutate, isPending, data, error } = useMutation({
     async mutationFn(data: any) {
       const response = await supabase.auth.signInWithPassword({
@@ -22,7 +26,12 @@ export const useLogin = () => {
     },
 
     onSuccess(data) {
-      toast.success("Registration Complete");
+      dispatch(
+        setAccessToken({ token: data.session.access_token, maxAge: data.session.expires_in })
+      );
+      dispatch(setUser(data.user));
+
+      toast.success("Login Successful");
     },
   });
 

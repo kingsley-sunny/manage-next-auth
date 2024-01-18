@@ -73,7 +73,7 @@ export const Register = () => {
                 disabled={!methods.formState.isValid}
                 isLoading={isPending}
               >
-                Sign Up
+                Register
               </Button>
             </div>
           </form>

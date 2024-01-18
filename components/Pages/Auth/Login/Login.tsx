@@ -10,6 +10,7 @@ import { loginValidator } from "./loginValidator";
 export const Login = () => {
   const { methods, handleSubmit } = useFormManager(loginValidator);
   const { data, handleLogin, isPending } = useLogin();
+  console.log("🚀 ~~ Login ~~ data:", data);
 
   return (
     <div className='flex flex-col px-8 items-center justify-center min-h-screen'>
@@ -50,7 +51,7 @@ export const Login = () => {
                 disabled={!methods.formState.isValid}
                 isLoading={isPending}
               >
-                Sign Up
+                Login
               </Button>
             </div>
           </form>
