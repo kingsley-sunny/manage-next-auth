@@ -9,7 +9,7 @@ import { loginValidator } from "./loginValidator";
 
 export const Login = () => {
   const { methods, handleSubmit } = useFormManager(loginValidator);
-  const { data, handleLogin, isPending } = useLogin();
+  const { handleLogin, isPending } = useLogin();
 
   return (
     <div className='flex flex-col px-8 items-center justify-center min-h-screen'>

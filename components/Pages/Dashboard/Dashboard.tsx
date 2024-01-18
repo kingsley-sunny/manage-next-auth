@@ -1,6 +1,3 @@
-import { useRouter } from "next/router";
-import { useDispatch, useSelector } from "react-redux";
-import { selectAccessToken } from "../../../base/store/authStore";
 import ActivityIcon from "../../Icons/ActivityIcon";
 import CreditCardIcon from "../../Icons/CreditCardIcon";
 import UsersIcon from "../../Icons/UsersIcon";
@@ -8,10 +5,6 @@ import { Container } from "../../UI/Container";
 import { DashboardNavBar } from "./DashboardNavBar";
 
 export const Dashboard = () => {
-  const accessToken = useSelector(selectAccessToken);
-  const dispatch = useDispatch();
-  const { push } = useRouter();
-
   return (
     <>
       <DashboardNavBar />
