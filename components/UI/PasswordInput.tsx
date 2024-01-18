@@ -38,6 +38,7 @@ export const PasswordInput = ({
         <button
           onClick={e => setIsPasswordShown(!isPasswordShown)}
           className='absolute text-gray-500 right-4 top-1/2 -translate-y-1/2'
+          type='button'
         >
           {isPasswordShown ? <EyeOpenIcon /> : <EyeCloseIcon />}
         </button>
