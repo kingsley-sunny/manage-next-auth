@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FormProvider } from "react-hook-form";
-import { useFormManager } from "../../../../hooks/useFormManager";
+import { useFormManager } from "../../../../base/hooks/useFormManager";
 import { Button } from "../../../UI/Button";
 import { Input } from "../../../UI/Input";
 import { PasswordInput } from "../../../UI/PasswordInput";

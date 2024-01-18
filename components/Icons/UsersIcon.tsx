@@ -1,5 +1,5 @@
+import { cn } from "../../base/libs/utils";
 import { IIconProps } from "../../base/types/IProps";
-import { cn } from "../../libs/utils";
 
 const UsersIcon = ({ className }: IIconProps) => {
   return (

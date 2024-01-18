@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { selectUser } from "../../../base/store/authStore";
-import { Container } from "../../Layouts/Container";
 import { Button } from "../../UI/Button";
+import { Container } from "../../UI/Container";
 import { useLogout } from "../Auth/hooks/useLogout";
 
 export const DashboardNavBar = () => {

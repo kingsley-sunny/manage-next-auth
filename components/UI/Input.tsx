@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, InputHTMLAttributes } from "react";
 import { useController, useFormContext } from "react-hook-form";
-import { cn } from "../../libs/utils";
+import { cn } from "../../base/libs/utils";
 
 export const Input = ({
   ...props

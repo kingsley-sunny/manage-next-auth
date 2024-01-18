@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Container } from "../../Layouts/Container";
+import { Container } from "../../UI/Container";
 
 export const HomePage = () => {
   return (

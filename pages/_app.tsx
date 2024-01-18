@@ -5,9 +5,9 @@ import { Montserrat } from "next/font/google";
 import { useRouter } from "next/router";
 import { Toaster } from "react-hot-toast";
 import { Provider } from "react-redux";
+import { cn } from "../base/libs/utils";
 import store from "../base/store/store";
 import { AuthenticatedLayout } from "../components/Layouts/AuthenticatedLayout";
-import { cn } from "../libs/utils";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 const queryClient = new QueryClient();

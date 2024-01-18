@@ -1,5 +1,5 @@
 import React, { DetailedHTMLProps, ReactNode } from "react";
-import { cn } from "../../libs/utils";
+import { cn } from "../../base/libs/utils";
 import SpinnerIcon from "../Icons/SpinnerIcon";
 
 export const Button = ({
