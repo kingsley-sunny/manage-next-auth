@@ -1,4 +1,4 @@
-import { Register } from "../../components/Pages/auth/Register";
+import { Register } from "../../components/Pages/Auth/Register/Register";
 
 const index = () => {
   return <Register />;

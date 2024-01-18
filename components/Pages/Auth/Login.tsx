@@ -24,7 +24,7 @@ export const Login = () => {
           </div>
           <div>
             <Button
-              className='w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-500'
+              className='w-full px-4 py-3 text-sm font-medium text-white bg-primary rounded-md hover:bg-primary/80'
               type='submit'
             >
               Sign Up
@@ -34,7 +34,7 @@ export const Login = () => {
 
         <div className='mt-4 text-sm'>
           Or{" "}
-          <Link className='text-blue-600 underline italic' href={"/auth/register"}>
+          <Link className='text-primary underline italic' href={"/auth/register"}>
             Register
           </Link>{" "}
           to If you have an account

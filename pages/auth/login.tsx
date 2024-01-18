@@ -1,4 +1,4 @@
-import { Login } from "../../components/Pages/auth/Login";
+import { Login } from "../../components/Pages/Auth/Login";
 
 const index = () => {
   return <Login />;
